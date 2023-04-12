@@ -35,13 +35,13 @@ class ExportUserToCSV implements IExportUserData {
 // and we're using DTOs as the input and output of the Use Cases
 class ExportUserUseCase {
   constructor(private exportUserData: IExportUserData) {}
-  execute(userData: UserData): void {
+  execute(userData: ExportUserDTO): void {
     //csv.export,, if we do this, then we're depeding on Infrastructure concern, instead we'll do:
     this.exportUserData.export(userData);
   }
 }
 
-type ExportUserDTO = UserData; // DTO
+export type ExportUserDTO = UserData; // DTO
 
 // maybe the composition root?
 const exportUserToPDF = new ExportUserToPDF(); // create an instance of our Gateway Adapter

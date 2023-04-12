@@ -31,6 +31,8 @@ class ExportUserToCSV implements IExportUserData {
 
 // The code in the useCase is an Application Layer Concern, it's inside the Hexagon
 // Use cases are the user-intention or user-actions on the system
+// In use cases we just hold interfaces to interact with the outside world
+// and we're using DTOs as the input and output of the Use Cases
 class ExportUserUseCase {
   constructor(private exportUserData: IExportUserData) {}
   execute(userData: UserData): void {
@@ -38,6 +40,8 @@ class ExportUserUseCase {
     this.exportUserData.export(userData);
   }
 }
+
+type ExportUserDTO = UserData; // DTO
 
 // maybe the composition root?
 const exportUserToPDF = new ExportUserToPDF(); // create an instance of our Gateway Adapter

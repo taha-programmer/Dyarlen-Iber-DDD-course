@@ -30,6 +30,7 @@ class ExportUserToCSV implements IExportUserData {
 }
 
 // The code in the useCase is an Application Layer Concern, it's inside the Hexagon
+// Use cases are the user-intention or user-actions on the system
 class ExportUserUseCase {
   constructor(private exportUserData: IExportUserData) {}
   execute(userData: UserData): void {
